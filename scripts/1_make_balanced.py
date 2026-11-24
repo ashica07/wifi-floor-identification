@@ -22,7 +22,7 @@ def main():
     df["p_clean"] = df["pressure_hpa"].where(df["p_resid"].abs() <= 1.0, df["p_med"])
     
     df.to_csv(out_path, index=False)
-    print(f"✅ Balanced dataset saved to: {out_path}")
+    print(f"Balanced dataset saved to: {out_path}")
 
 if __name__ == "__main__":
     main()
