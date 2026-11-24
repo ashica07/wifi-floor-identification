@@ -189,9 +189,7 @@ from collections import defaultdict
 from scipy.stats import mode
 from sklearn.neighbors import NearestNeighbors, BallTree
 from sklearn.metrics import accuracy_score, f1_score
-from sklearn.cluster import KMeans
-km = KMeans(n_clusters=40, random_state=0, n_init=10)
-km.fit(X_train)
+
 # =========================================================
 ROOT = r"C:\Users\Ashica\Downloads\2025_IPIN_Competition_Track03\2025_IPIN_Competition_Track03"
 CSV_DIR = os.path.join(ROOT, "01 Logfiles", "01 - Training", "converted_csv")
