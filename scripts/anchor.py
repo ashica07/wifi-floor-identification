@@ -189,7 +189,8 @@ from collections import defaultdict
 from scipy.stats import mode
 from sklearn.neighbors import NearestNeighbors, BallTree
 from sklearn.metrics import accuracy_score, f1_score
-
+from sklearn.cluster import KMeans
+km = KMeans(n_clusters=40, random_state=0, n_init=10)
 # =========================================================
 ROOT = r"C:\Users\Ashica\Downloads\2025_IPIN_Competition_Track03\2025_IPIN_Competition_Track03"
 CSV_DIR = os.path.join(ROOT, "01 Logfiles", "01 - Training", "converted_csv")
@@ -475,9 +476,9 @@ from sklearn.cluster import MiniBatchKMeans
 
 K = 40  # number of hash buckets
 km = MiniBatchKMeans(n_clusters=K, random_state=0, n_init=5, batch_size=64)
-km.fit(X_train)
 
 # hash each fingerprint by nearest centroid
+km.fit(X_train)
 train_bucket = km.predict(X_train)
 test_bucket  = km.predict(X_test)
 
