@@ -442,11 +442,13 @@ print("\n--- Mean pressure per (trial, floor) ---")
 piv = df.pivot_table(index="trial", columns="floor",
                      values="pressure_hpa", aggfunc="mean")
 print(piv.round(3))
+piv.to_csv("results/mean_pressure_per_trial_floor.csv")
 
 print("\n--- Std pressure per (trial, floor) ---")
 piv_std = df.pivot_table(index="trial", columns="floor",
                          values="pressure_hpa", aggfunc="std")
 print(piv_std.round(4))
+piv_std.to_csv("results/std_pressure_per_trial_floor.csv")
 
 print("\n--- Within-trial pressure range per floor ---")
 for trial, g in df.groupby("trial"):
@@ -505,6 +507,7 @@ print("\n--- Pressure std per device × trial ---")
 piv = df.pivot_table(index="trial", columns="device",
                      values="pressure_hpa", aggfunc="std")
 print(piv.round(3))
+piv.to_csv("results/device_pressure_std_per_trial.csv")
 
 # In[19]:
 
@@ -545,12 +548,14 @@ print("\nPer (trial, floor) std, cleaned:")
 piv = df.pivot_table(index="trial", columns="floor",
                      values="p_clean", aggfunc="std")
 print(piv.round(3))
+piv.to_csv("results/cleaned_std_pressure_per_trial_floor.csv") 
 
 # Per-floor mean, cleaned
 print("\nPer (trial, floor) mean, cleaned:")
 piv2 = df.pivot_table(index="trial", columns="floor",
                       values="p_clean", aggfunc="mean")
 print(piv2.round(3))
+piv2.to_csv("results/cleaned_mean_pressure_per_trial_floor.csv")
 
 # Save cleaned version
 df.to_csv(os.path.join(CSV_DIR, "combined_dataset_v3_clean.csv"), index=False)
