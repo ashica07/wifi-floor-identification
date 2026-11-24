@@ -1,16 +1,10 @@
-# Python
+# Python cache
 __pycache__/
-*.py[cod]
 .ipynb_checkpoints/
 
-# Environments
-.venv/
-venv/
-
-# Local machine config
+# Local config
 config.yaml
 
-# Datasets (Do not push CSVs)
+# Ignore all CSV files EXCEPT the ones in the results folder
 *.csv
-data/
-my_results/
+!results/*.csv
